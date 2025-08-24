@@ -1,12 +1,13 @@
 """FastAPI web application."""
 
-from typing import Dict, Any
+from typing import Any, Dict
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from gen_ai_rag_langchain.core import RAGSystem
 from gen_ai_rag_langchain.config import get_config
+from gen_ai_rag_langchain.core import RAGSystem
 
 # Initialize configuration
 config = get_config()
@@ -36,6 +37,7 @@ rag_system = RAGSystem(config.__dict__)
 # Request/Response models
 class QueryRequest(BaseModel):
     """Query request model."""
+
     query: str
     max_tokens: int = 4000
     temperature: float = 0.7
@@ -43,6 +45,7 @@ class QueryRequest(BaseModel):
 
 class QueryResponse(BaseModel):
     """Query response model."""
+
     query: str
     response: str
     sources: list
@@ -51,6 +54,7 @@ class QueryResponse(BaseModel):
 
 class HealthResponse(BaseModel):
     """Health check response model."""
+
     status: str
     version: str
 
@@ -82,13 +86,13 @@ async def root():
     return {
         "message": "Gen AI RAG LangChain API",
         "version": "0.1.0",
-        "docs": "/docs" if config.debug else "Documentation disabled in production",
+        "docs": ("/docs" if config.debug else "Documentation disabled in production"),
     }
 
 
 if __name__ == "__main__":
     import uvicorn
-    
+
     uvicorn.run(
         "gen_ai_rag_langchain.api:app",
         host=config.api_host,
