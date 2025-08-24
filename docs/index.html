@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen AI RAG LangChain - Modern Python RAG Framework</title>
+    <meta name="description" content="A comprehensive, production-ready Python framework for building Retrieval-Augmented Generation (RAG) applications with LangChain, FastAPI, and modern tooling.">
+    <meta name="keywords" content="RAG, LangChain, Python, FastAPI, AI, Machine Learning, GenAI">
+    <meta name="author" content="shyenuganti">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shyenuganti.github.io/gen_ai_rag_langchain/">
+    <meta property="og:title" content="Gen AI RAG LangChain - Modern Python RAG Framework">
+    <meta property="og:description" content="A comprehensive, production-ready Python framework for building RAG applications">
+    <meta property="og:image" content="https://shyenuganti.github.io/gen_ai_rag_langchain/assets/banner.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://shyenuganti.github.io/gen_ai_rag_langchain/">
+    <meta property="twitter:title" content="Gen AI RAG LangChain - Modern Python RAG Framework">
+    <meta property="twitter:description" content="A comprehensive, production-ready Python framework for building RAG applications">
+    <meta property="twitter:image" content="https://shyenuganti.github.io/gen_ai_rag_langchain/assets/banner.png">
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🧠 Gen AI RAG LangChain</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#quickstart">Quick Start</a>
+                <a href="#documentation">Documentation</a>
+                <a href="#deployment">Deployment</a>
+                <a href="https://github.com/shyenuganti/gen_ai_rag_langchain" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Build Production-Ready RAG Applications</h1>
+                    <p class="hero-subtitle">A comprehensive Python framework for Retrieval-Augmented Generation with LangChain, FastAPI, and modern development tooling.</p>
+                    <div class="hero-badges">
+                        <span class="badge">🐍 Python 3.11+</span>
+                        <span class="badge">⚡ FastAPI</span>
+                        <span class="badge">🔗 LangChain</span>
+                        <span class="badge">☁️ AWS ECS Ready</span>
+                        <span class="badge">🧪 100% Tested</span>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#quickstart" class="btn btn-primary">Get Started</a>
+                        <a href="https://github.com/shyenuganti/gen_ai_rag_langchain" class="btn btn-secondary" target="_blank" rel="noopener">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="hero-code">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="code-title">Quick Start</span>
+                        </div>
+                        <pre><code class="language-bash"># Clone and setup
+git clone https://github.com/shyenuganti/gen_ai_rag_langchain.git
+cd gen_ai_rag_langchain
+./setup.sh
+
+# Start development server
+make serve
+
+# Process a query
+make cli-query QUERY="What is AI?"</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>🚀 Everything You Need to Build RAG Applications</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Advanced RAG System</h3>
+                    <p>Built with LangChain for state-of-the-art retrieval-augmented generation capabilities with extensible architecture.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Modern Python Stack</h3>
+                    <p>Python 3.11+, UV package manager, FastAPI web framework, and comprehensive type safety with mypy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧪</div>
+                    <h3>Comprehensive Testing</h3>
+                    <p>Unit, integration, and functional tests with pytest. Coverage reports and CI/CD integration included.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Security First</h3>
+                    <p>Pre-commit hooks, security scanning with Bandit and Safety, dependency vulnerability checks.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🐳</div>
+                    <h3>Container Ready</h3>
+                    <p>Multi-stage Dockerfile, Docker Compose for development, health checks, and production optimizations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Cloud Native</h3>
+                    <p>AWS ECS deployment, GitHub Actions CI/CD, ECR integration, auto-scaling, and monitoring.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Auto Documentation</h3>
+                    <p>MkDocs with Material theme, automatic API docs with FastAPI, code examples, and search functionality.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>Developer Experience</h3>
+                    <p>30+ Make commands, direnv integration, pre-commit hooks, hot reloading, and comprehensive tooling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quickstart" class="quickstart">
+        <div class="container">
+            <h2>🏃‍♂️ Quick Start Guide</h2>
+            <div class="quickstart-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Prerequisites</h3>
+                        <p>Ensure you have the required tools installed:</p>
+                        <ul>
+                            <li>Python 3.11+ - <a href="https://www.python.org/downloads/" target="_blank">Download</a></li>
+                            <li>UV - Fast Python package manager</li>
+                            <li>Git - Version control system</li>
+                            <li>direnv (optional) - Environment management</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre><code class="language-bash"># Install UV
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Install direnv (optional)
+brew install direnv  # macOS
+sudo apt install direnv  # Ubuntu</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Clone & Setup</h3>
+                        <p>Get the project and run the automated setup:</p>
+                        <div class="code-block">
+                            <pre><code class="language-bash"># Clone the repository
+git clone https://github.com/shyenuganti/gen_ai_rag_langchain.git
+cd gen_ai_rag_langchain
+
+# Run automated setup (recommended)
+./setup.sh
+
+# Or manual setup
+make dev-setup</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Configure Environment</h3>
+                        <p>Set up your environment variables:</p>
+                        <div class="code-block">
+                            <pre><code class="language-bash"># Copy environment template
+cp .env.example .env
+
+# Edit configuration (add your API keys)
+vim .env  # or use your preferred editor
+
+# Key variables to set:
+# OPENAI_API_KEY=your-openai-key
+# DATABASE_URL=sqlite:///./gen_ai_rag.db
+# AWS_DEFAULT_REGION=us-east-1</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Start Development</h3>
+                        <p>Run the application and start developing:</p>
+                        <div class="code-block">
+                            <pre><code class="language-bash"># Start development server with hot reload
+make serve
+# Server starts at http://localhost:8000
+
+# In another terminal, test the CLI
+make cli-health
+make cli-query QUERY="What is machine learning?"
+
+# Run tests
+make test</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="documentation" class="documentation">
+        <div class="container">
+            <h2>📚 Developer Onboarding & Documentation</h2>
+            <div class="doc-grid">
+                <div class="doc-section">
+                    <h3>🎯 For New Developers</h3>
+                    <div class="doc-links">
+                        <a href="#quickstart" class="doc-link">
+                            <span class="doc-icon">🚀</span>
+                            <div>
+                                <strong>Quick Start Guide</strong>
+                                <p>Get up and running in 5 minutes</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/shyenuganti/gen_ai_rag_langchain/blob/main/docs/getting-started.md" class="doc-link">
+                            <span class="doc-icon">📖</span>
+                            <div>
+                                <strong>Getting Started</strong>
+                                <p>Detailed setup and first steps</p>
+                            </div>
+                        </a>
+                        <a href="#architecture" class="doc-link">
+                            <span class="doc-icon">🏗️</span>
+                            <div>
+                                <strong>Architecture Overview</strong>
+                                <p>Understand the system design</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="doc-section">
+                    <h3>🛠️ Development</h3>
+                    <div class="doc-links">
+                        <a href="#make-commands" class="doc-link">
+                            <span class="doc-icon">⚡</span>
+                            <div>
+                                <strong>Make Commands</strong>
+                                <p>30+ commands for development</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/shyenuganti/gen_ai_rag_langchain/tree/main/tests" class="doc-link">
+                            <span class="doc-icon">🧪</span>
+                            <div>
+                                <strong>Testing Guide</strong>
+                                <p>Unit, integration & functional tests</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/shyenuganti/gen_ai_rag_langchain/blob/main/src/gen_ai_rag_langchain" class="doc-link">
+                            <span class="doc-icon">🔍</span>
+                            <div>
+                                <strong>API Reference</strong>
+                                <p>Detailed code documentation</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="doc-section">
+                    <h3>🚀 Deployment</h3>
+                    <div class="doc-links">
+                        <a href="#docker" class="doc-link">
+                            <span class="doc-icon">🐳</span>
+                            <div>
+                                <strong>Docker Deployment</strong>
+                                <p>Containerized deployment guide</p>
+                            </div>
+                        </a>
+                        <a href="#aws-ecs" class="doc-link">
+                            <span class="doc-icon">☁️</span>
+                            <div>
+                                <strong>AWS ECS Deployment</strong>
+                                <p>Production cloud deployment</p>
+                            </div>
+                        </a>
+                        <a href="#ci-cd" class="doc-link">
+                            <span class="doc-icon">🔄</span>
+                            <div>
+                                <strong>CI/CD Pipeline</strong>
+                                <p>Automated testing & deployment</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="architecture">
+        <div class="container">
+            <h2>🏗️ System Architecture</h2>
+            <div class="architecture-content">
+                <div class="arch-diagram">
+                    <div class="arch-layer">
+                        <h4>Interface Layer</h4>
+                        <div class="arch-components">
+                            <div class="arch-component primary">FastAPI Web API</div>
+                            <div class="arch-component primary">CLI Interface</div>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">↓</div>
+                    <div class="arch-layer">
+                        <h4>Business Logic</h4>
+                        <div class="arch-components">
+                            <div class="arch-component secondary">RAG System Core</div>
+                            <div class="arch-component secondary">LangChain Integration</div>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">↓</div>
+                    <div class="arch-layer">
+                        <h4>Infrastructure</h4>
+                        <div class="arch-components">
+                            <div class="arch-component tertiary">Configuration</div>
+                            <div class="arch-component tertiary">Logging</div>
+                            <div class="arch-component tertiary">Database</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-features">
+                    <h4>🎯 Design Principles</h4>
+                    <ul>
+                        <li><strong>Clean Architecture:</strong> Clear separation of concerns with layered design</li>
+                        <li><strong>Dependency Injection:</strong> Flexible configuration and testing</li>
+                        <li><strong>Type Safety:</strong> Comprehensive type hints and mypy validation</li>
+                        <li><strong>Error Handling:</strong> Graceful error handling and logging</li>
+                        <li><strong>Extensibility:</strong> Plugin-friendly architecture for easy expansion</li>
+                        <li><strong>Observability:</strong> Structured logging and health monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="make-commands" class="commands">
+        <div class="container">
+            <h2>⚡ Essential Make Commands</h2>
+            <div class="commands-grid">
+                <div class="command-category">
+                    <h3>🔧 Development</h3>
+                    <div class="command-list">
+                        <div class="command">
+                            <code>make setup</code>
+                            <span>Complete project setup</span>
+                        </div>
+                        <div class="command">
+                            <code>make serve</code>
+                            <span>Start development server</span>
+                        </div>
+                        <div class="command">
+                            <code>make format</code>
+                            <span>Format code with Black & isort</span>
+                        </div>
+                        <div class="command">
+                            <code>make lint</code>
+                            <span>Run linting with flake8</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="command-category">
+                    <h3>🧪 Testing</h3>
+                    <div class="command-list">
+                        <div class="command">
+                            <code>make test</code>
+                            <span>Run all tests</span>
+                        </div>
+                        <div class="command">
+                            <code>make test-unit</code>
+                            <span>Run unit tests only</span>
+                        </div>
+                        <div class="command">
+                            <code>make coverage</code>
+                            <span>Generate coverage report</span>
+                        </div>
+                        <div class="command">
+                            <code>make security-check</code>
+                            <span>Run security scans</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="command-category">
+                    <h3>🐳 Docker</h3>
+                    <div class="command-list">
+                        <div class="command">
+                            <code>make docker-build</code>
+                            <span>Build Docker image</span>
+                        </div>
+                        <div class="command">
+                            <code>make docker-compose-up</code>
+                            <span>Start all services</span>
+                        </div>
+                        <div class="command">
+                            <code>make docker-run</code>
+                            <span>Run container</span>
+                        </div>
+                        <div class="command">
+                            <code>make docker-clean</code>
+                            <span>Clean Docker artifacts</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="command-category">
+                    <h3>☁️ Deployment</h3>
+                    <div class="command-list">
+                        <div class="command">
+                            <code>make deploy</code>
+                            <span>Deploy to AWS ECS</span>
+                        </div>
+                        <div class="command">
+                            <code>make build</code>
+                            <span>Build Python package</span>
+                        </div>
+                        <div class="command">
+                            <code>make docs</code>
+                            <span>Build documentation</span>
+                        </div>
+                        <div class="command">
+                            <code>make clean</code>
+                            <span>Clean all artifacts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="command-help">
+                <p>💡 <strong>Tip:</strong> Run <code>make help</code> to see all available commands with descriptions</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="deployment" class="deployment">
+        <div class="container">
+            <h2>🚀 Deployment Options</h2>
+            <div class="deployment-options">
+                <div class="deployment-card" id="docker">
+                    <div class="deployment-header">
+                        <h3>🐳 Docker Deployment</h3>
+                        <span class="deployment-badge easy">Easy</span>
+                    </div>
+                    <p>Perfect for local development and testing environments</p>
+                    <div class="deployment-steps">
+                        <div class="code-block">
+                            <pre><code class="language-bash"># Quick start with Docker Compose
+make docker-compose-up
+
+# Or manual Docker build
+make docker-build
+make docker-run
+
+# Access the application
+open http://localhost:8000</code></pre>
+                        </div>
+                    </div>
+                    <div class="deployment-features">
+                        <span class="feature-tag">✅ Health Checks</span>
+                        <span class="feature-tag">✅ Multi-stage Build</span>
+                        <span class="feature-tag">✅ Non-root User</span>
+                    </div>
+                </div>
+
+                <div class="deployment-card" id="aws-ecs">
+                    <div class="deployment-header">
+                        <h3>☁️ AWS ECS Deployment</h3>
+                        <span class="deployment-badge production">Production</span>
+                    </div>
+                    <p>Scalable, production-ready deployment on AWS cloud</p>
+                    <div class="deployment-steps">
+                        <div class="code-block">
+                            <pre><code class="language-bash"># Configure AWS credentials
+aws configure
+
+# Update deployment configuration
+vim deployment/task-definition.json
+
+# Deploy to ECS
+make deploy
+
+# Monitor deployment
+aws ecs describe-services --cluster gen-ai-rag-cluster</code></pre>
+                        </div>
+                    </div>
+                    <div class="deployment-features">
+                        <span class="feature-tag">✅ Auto Scaling</span>
+                        <span class="feature-tag">✅ Load Balancing</span>
+                        <span class="feature-tag">✅ Secrets Management</span>
+                        <span class="feature-tag">✅ CloudWatch Logs</span>
+                    </div>
+                </div>
+
+                <div class="deployment-card" id="ci-cd">
+                    <div class="deployment-header">
+                        <h3>🔄 CI/CD Pipeline</h3>
+                        <span class="deployment-badge automated">Automated</span>
+                    </div>
+                    <p>Fully automated testing, building, and deployment</p>
+                    <div class="deployment-steps">
+                        <div class="code-block">
+                            <pre><code class="language-bash"># Set up GitHub secrets
+# AWS_ACCESS_KEY_ID
+# AWS_SECRET_ACCESS_KEY
+# AWS_DEFAULT_REGION
+# ECS_CLUSTER_NAME
+# ECS_SERVICE_NAME
+
+# Push to main branch triggers:
+git push origin main
+# → Tests → Security Scan → Build → Deploy</code></pre>
+                        </div>
+                    </div>
+                    <div class="deployment-features">
+                        <span class="feature-tag">✅ Multi-Python Testing</span>
+                        <span class="feature-tag">✅ Security Scanning</span>
+                        <span class="feature-tag">✅ Auto Deployment</span>
+                        <span class="feature-tag">✅ Rollback Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack">
+        <div class="container">
+            <h2>🔧 Technology Stack</h2>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>Core Framework</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI">
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat&logo=chainlink&logoColor=white" alt="LangChain">
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/Pydantic-E92063?style=flat&logo=pydantic&logoColor=white" alt="Pydantic">
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Development Tools</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/UV-DE3163?style=flat&logo=python&logoColor=white" alt="UV">
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/Pytest-0A9EDC?style=flat&logo=pytest&logoColor=white" alt="Pytest">
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/Black-000000?style=flat&logo=python&logoColor=white" alt="Black">
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/MyPy-2F74C0?style=flat&logo=python&logoColor=white" alt="MyPy">
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Infrastructure</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker">
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/AWS_ECS-FF9900?style=flat&logo=amazon-aws&logoColor=white" alt="AWS ECS">
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white" alt="GitHub Actions">
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://img.shields.io/badge/MkDocs-526CFE?style=flat&logo=material-design&logoColor=white" alt="MkDocs">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Build Your RAG Application?</h2>
+                <p>Get started with a production-ready foundation that includes everything you need for modern Python development.</p>
+                <div class="cta-actions">
+                    <a href="https://github.com/shyenuganti/gen_ai_rag_langchain" class="btn btn-primary" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        Clone Repository
+                    </a>
+                    <a href="#quickstart" class="btn btn-secondary">View Documentation</a>
+                </div>
+                <div class="cta-stats">
+                    <div class="stat">
+                        <strong>30+</strong>
+                        <span>Make Commands</span>
+                    </div>
+                    <div class="stat">
+                        <strong>100%</strong>
+                        <span>Test Coverage</span>
+                    </div>
+                    <div class="stat">
+                        <strong>5min</strong>
+                        <span>Setup Time</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Gen AI RAG LangChain</h3>
+                    <p>A comprehensive Python framework for building production-ready RAG applications.</p>
+                    <div class="footer-links">
+                        <a href="https://github.com/shyenuganti/gen_ai_rag_langchain" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://github.com/shyenuganti/gen_ai_rag_langchain/issues" target="_blank" rel="noopener">Issues</a>
+                        <a href="https://github.com/shyenuganti/gen_ai_rag_langchain/discussions" target="_blank" rel="noopener">Discussions</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="#quickstart">Quick Start</a></li>
+                        <li><a href="https://github.com/shyenuganti/gen_ai_rag_langchain/blob/main/docs/getting-started.md">Getting Started</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="https://github.com/shyenuganti/gen_ai_rag_langchain/tree/main/tests">Testing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Deployment</h4>
+                    <ul>
+                        <li><a href="#docker">Docker</a></li>
+                        <li><a href="#aws-ecs">AWS ECS</a></li>
+                        <li><a href="#ci-cd">CI/CD</a></li>
+                        <li><a href="https://github.com/shyenuganti/gen_ai_rag_langchain/tree/main/deployment">Scripts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://github.com/shyenuganti/gen_ai_rag_langchain/blob/main/CONTRIBUTING.md">Contributing</a></li>
+                        <li><a href="https://github.com/shyenuganti/gen_ai_rag_langchain/blob/main/LICENSE">License</a></li>
+                        <li><a href="https://github.com/shyenuganti/gen_ai_rag_langchain/releases">Releases</a></li>
+                        <li><a href="https://github.com/shyenuganti">Author</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gen AI RAG LangChain. Licensed under MIT License.</p>
+                <p>Built with ❤️ using modern Python tooling</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
