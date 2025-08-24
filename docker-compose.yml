@@ -61,15 +61,6 @@ services:
     networks:
       - gen-ai-network
 
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    networks:
-      - gen-ai-network
-
   postgres:
     image: postgres:15-alpine
     environment:
