@@ -1,4 +1,4 @@
-# Enterprise Error Framework for Autonomous Operations
+# AI-Ready Structured Error Logging
 
 ## Design Document
 
